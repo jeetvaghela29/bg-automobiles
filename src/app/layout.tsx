@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 export const metadata: Metadata = {
   title:
     " BG Automobile | Expert Car Repair & Car Washing Services in Bhuj, Kutch",
@@ -18,7 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`antialiased ${ManropeFonts.className}`}>
+        <Analytics/>
         {children}
+        <SpeedInsights/>
       </body>
     </html>
   );
