@@ -24,7 +24,7 @@ const Hero: React.FC = () => {
               Expert Car Repairs & Premium Car Washing in Bhuj, Kutch
             </h1>
             <p className="text-slate-900 text-xl mb-8">
-              Your trusted partner for professional automotive care. Experience
+              Your trusted partner for professional automotive care. Experience over 40 years of 
               excellence in every service.
             </p>
             <div className="flex flex-wrap gap-4">
