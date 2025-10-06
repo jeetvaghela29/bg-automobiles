@@ -22,7 +22,8 @@ export const Footer = () => {
               </div>
               <div className="flex items-center gap-2">
                 <Mail size={18} className="text-[#ff2214]" />
-                <span>contact@bgautomobile.com</span>
+                <span>bg.automobiles027@gmail.com
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin size={18} className="text-[#ff2214]" />
