@@ -63,7 +63,7 @@ const CTA: React.FC = () => {
 
         <div className="flex flex-col md:flex-row items-center justify-center gap-6">
           <Link
-            href="https://cal.com/bg-automobiles/appointment-booking"
+            href="https://cal.com/bg-automobile/appointment-booking"
             className="bg-[#ff2214] text-white px-8 py-4 rounded-xl font-medium inline-flex items-center gap-3 hover:bg-[#ff3324] transition-all duration-300 hover:shadow-lg hover:shadow-[#ff221433] transform hover:-translate-y-1"
           >
             Book Service Now <ArrowRight size={20} />

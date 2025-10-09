@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
               excellence in every service.
             </p>
             <div className="flex flex-wrap gap-4">
-              <a href="https://cal.com/bg-automobiles/appointment-booking" className="bg-[#ff2214] text-white px-8 py-3 rounded-full font-medium hover:bg-[#172128] transition-colors duration-300">
+              <a href="https://cal.com/bg-automobile/appointment-booking" className="bg-[#ff2214] text-white px-8 py-3 rounded-full font-medium hover:bg-[#172128] transition-colors duration-300">
                 Book Now
               </a>
             </div>
