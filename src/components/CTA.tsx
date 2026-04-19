@@ -1,84 +1,95 @@
-import { ArrowRight, Shield, Star, LucideBolt } from "lucide-react";
+"use client";
+
+import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import { Cover } from "./ui/cover";
-import { HoverBorderGradient } from "./ui/hover-border-gradient";
+import * as React from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowRight, Phone } from "lucide-react";
+import { buttonVariants } from "@/components/ui/button";
 
-const CTA: React.FC = () => {
+export function CTABanner() {
+  const ref = React.useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const bgY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1.1, 1.2]);
+
   return (
-    <section className="py-20 bg-gradient-to-br from-[#172128] via-[#1a252c] to-[#172128] px-16 relative overflow-hidden">
-      {/* Background Decorative Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#ff2214] opacity-10 blur-[100px] rounded-full"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#ff2214] opacity-10 blur-[100px] rounded-full"></div>
-      </div>
+    <section
+      id="contact"
+      ref={ref}
+      className="relative px-6 py-24 md:px-10 md:py-32"
+    >
+      <div className="mx-auto max-w-6xl">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7 }}
+          className="relative overflow-hidden rounded-3xl border border-white/10 shadow-glow"
+        >
+          <motion.div
+            style={{ y: bgY, scale: bgScale }}
+            className="absolute inset-0 -z-10"
+          >
+            <Image
+              src="/cta-bg.png"
+              alt="Luxury sedan in a darkened studio"
+              fill
+              sizes="(max-width: 1024px) 100vw, 1200px"
+              quality={90}
+              className="object-cover"
+            />
+          </motion.div>
 
-      <div className="container mx-auto  relative">
-        <div className="max-w-4xl mx-auto text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Experience Premium Auto Care at <br />
-            <Cover className="rounded-xl">
-              <span className="text-[#ff2214] cursor-default">
-                BG Automobiles
+          <div
+            className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-brand-bg/95 via-brand-bg/70 to-brand-bg/40"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-t from-brand-bg via-transparent to-brand-bg/40"
+            aria-hidden
+          />
+
+          <div className="relative px-6 py-16 md:px-16 md:py-20">
+            <div className="max-w-xl">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs uppercase tracking-[0.25em] text-foreground/80 backdrop-blur">
+                Book in 60 seconds
               </span>
-            </Cover>
-          </h2>
-          <p className="text-gray-400 text-lg mb-8">
-            Join thousands of satisfied customers who trust us with their
-            vehicles. Professional service, competitive prices, and expert care.
-          </p>
-        </div>
+              <h2 className="mt-6 font-display text-4xl leading-tight tracking-tight text-foreground md:text-5xl lg:text-6xl">
+                Your car deserves a studio that knows it.
+              </h2>
+              <p className="mt-5 max-w-lg text-balance text-base text-foreground/75 md:text-lg">
+                Reserve a diagnostic slot, schedule a service, or drop by for a
+                walk-through. Our service advisors respond within the hour.
+              </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          {[
-            {
-              icon: Shield,
-              title: "Quality Guarantee",
-              description:
-                "All our services come with a satisfaction guarantee",
-            },
-            {
-              icon: LucideBolt,
-              title: "Expert Technicians",
-              description: "Certified professionals with years of experience",
-            },
-            {
-              icon: Star,
-              title: "Premium Service",
-              description: "State-of-the-art equipment and genuine parts",
-            },
-          ].map((feature, index) => (
-            <HoverBorderGradient
-              className="bg-[#141c28] border  p-8 shadow-lg hover:shadow-xl transition-all duration-300"
-              key={index}
-            >
-              <feature.icon size={32} className="text-[#ff2214] mb-4" />
-              <h3 className="text-white text-xl font-semibold mb-4">
-                {feature.title}
-              </h3>
-              <p className="text-gray-400">{feature.description}</p>
-            </HoverBorderGradient>
-          ))}
-        </div>
-
-        <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-          <Link
-            href="https://cal.com/bg-automobile/appointment-booking"
-            className="bg-[#ff2214] text-white px-8 py-4 rounded-xl font-medium inline-flex items-center gap-3 hover:bg-[#ff3324] transition-all duration-300 hover:shadow-lg hover:shadow-[#ff221433] transform hover:-translate-y-1"
-          >
-            Book Service Now <ArrowRight size={20} />
-          </Link>
-          {/* We can link to whatapp. */}
-          {/* <Link
-            href="tel:+1234567890"
-            className="bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-xl font-medium inline-flex items-center gap-3 hover:bg-white/20 transition-all duration-300"
-          >
-            Call Us Now
-          </Link> */}
-        </div>
+              <div className="mt-10 flex flex-wrap items-center gap-3">
+                <Link
+                  href="https://cal.com/bg-automobile/appointment-booking"
+                  target="_blank"
+                  rel="noreferrer"
+                  className={buttonVariants({ variant: "gradient", size: "lg" })}
+                >
+                  Book a service
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  href="tel:+919999999999"
+                  className={buttonVariants({ variant: "outline", size: "lg" })}
+                >
+                  <Phone className="h-4 w-4" />
+                  Call the studio
+                </Link>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
-};
+}
 
-export default CTA;
+export default CTABanner;

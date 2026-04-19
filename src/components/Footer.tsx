@@ -1,71 +1,114 @@
-import { Phone, Mail, MapPin, Clock, ChevronRight } from "lucide-react";
-export const Footer = () => {
+import Link from "next/link";
+import { Mail, MapPin, Phone, Instagram, Facebook } from "lucide-react";
+import { NAV_LINKS } from "@/lib/constants";
+
+export function Footer() {
   return (
-    <footer className="bg-[#172128] text-white py-12 cursor-default">
-      <div className="container mx-auto px-16">
-        <div className="grid grid-cols-1 md:flex justify-between  gap-8">
-          <div>
-            <h3 className="text-xl font-bold mb-4 flex flex-col gap-1">
-              BG-Automobile
-              <span className="text-gray-400 text-sm">Since 1982</span>
-            </h3>
-            <p className="text-gray-400">
-              Expert car repairs & premium car washing services in Bhuj, Kutch.
-            </p>
+    <footer className="relative border-t border-white/10 bg-brand-bg/80 px-6 py-16 backdrop-blur-xl md:px-10">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 md:grid-cols-4">
+        <div className="space-y-4">
+          <Link href="#top" className="flex items-center gap-2">
+            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-accent-gradient text-sm font-bold text-white shadow-glow">
+              BG
+            </span>
+            <span className="font-display text-lg tracking-wide">
+              BG Automobiles
+            </span>
+          </Link>
+          <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
+            Precision engineering and unmatched care since 1984. A multi-brand
+            service studio built on craftsmanship.
+          </p>
+          <div className="flex items-center gap-3">
+            <Link
+              href="#"
+              aria-label="Instagram"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-foreground/75 transition hover:border-accent/40 hover:text-foreground"
+            >
+              <Instagram className="h-4 w-4" />
+            </Link>
+            <Link
+              href="#"
+              aria-label="Facebook"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-foreground/75 transition hover:border-accent/40 hover:text-foreground"
+            >
+              <Facebook className="h-4 w-4" />
+            </Link>
           </div>
-          <div>
-            <h3 className="text-xl font-bold mb-4">Contact Info</h3>
-            <div className="space-y-2">
-              <div className="flex items-center gap-2">
-                <Phone size={18} className="text-[#ff2214]" />
-                <span>+91 8160724305</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Mail size={18} className="text-[#ff2214]" />
-                <span>bg.automobiles027@gmail.com
-                </span>
-              </div>
-              <div className="flex items-center gap-2">
-                <MapPin size={18} className="text-[#ff2214]" />
-                <div className=" flex flex-col gap-1 justify-start">
-                  <span>PLOT NO.27, B/H SHRI RAM MINERALS OFFICE,</span>
-                  <span>BHUJ MADHAPAR HIGHWAY, Madhapur, Bhuj-370020</span>
-                </div>
-              </div>
-              <div className="flex items-center gap-2">
-                <Clock size={18} className="text-[#ff2214]" />
-                <span>Mon-Sat: 9:00 AM - 6:00 PM</span>
-              </div>
-            </div>
-          </div>
-          {/* <div>
-          <h3 className="text-xl font-bold mb-4">Quick Links</h3>
-          <ul className="space-y-2">
-            <li>
-              <a href="#about" className="flex items-center gap-2 hover:text-[#ff2214] transition-colors">
-                <ChevronRight size={16} />
-                <span>About Us</span>
-              </a>
+        </div>
+
+        <div>
+          <h4 className="text-xs uppercase tracking-[0.25em] text-foreground/60">
+            Explore
+          </h4>
+          <ul className="mt-5 space-y-3 text-sm">
+            {NAV_LINKS.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="text-muted-foreground transition hover:text-foreground"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="text-xs uppercase tracking-[0.25em] text-foreground/60">
+            Studio
+          </h4>
+          <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
+            <li className="flex items-start gap-2">
+              <MapPin className="mt-0.5 h-4 w-4 text-accent" />
+              <span>
+                Plot 27, Bhuj-Madhapar Highway,
+                <br />
+                Madhapar, Bhuj 370020
+              </span>
             </li>
-            <li>
-              <a href="#services" className="flex items-center gap-2 hover:text-[#ff2214] transition-colors">
-                <ChevronRight size={16} />
-                <span>Our Services</span>
-              </a>
+            <li className="flex items-center gap-2">
+              <Phone className="h-4 w-4 text-accent" />
+              <Link href="tel:+918160724305" className="transition hover:text-foreground">
+                +91 81607 24305
+              </Link>
             </li>
-            <li>
-              <a href="#contact" className="flex items-center gap-2 hover:text-[#ff2214] transition-colors">
-                <ChevronRight size={16} />
-                <span>Contact Us</span>
-              </a>
+            <li className="flex items-center gap-2">
+              <Mail className="h-4 w-4 text-accent" />
+              <Link
+                href="mailto:bg.automobiles027@gmail.com"
+                className="transition hover:text-foreground"
+              >
+                bg.automobiles027@gmail.com
+              </Link>
             </li>
           </ul>
-        </div> */}
         </div>
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2025 BG-Automobile. All rights reserved.</p>
+
+        <div>
+          <h4 className="text-xs uppercase tracking-[0.25em] text-foreground/60">
+            Hours
+          </h4>
+          <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
+            <li className="flex items-center justify-between">
+              <span>Mon – Sat</span>
+              <span className="text-foreground/90">9:00 – 18:00</span>
+            </li>
+            <li className="flex items-center justify-between">
+              <span>Sunday</span>
+              <span className="text-foreground/60">Closed</span>
+            </li>
+          </ul>
         </div>
+      </div>
+
+      <div className="mx-auto mt-12 flex max-w-7xl flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-muted-foreground md:flex-row">
+        <p>© {new Date().getFullYear()} BG Automobiles. All rights reserved.</p>
+        <p>Crafted with precision By Yash Patel</p>
       </div>
     </footer>
   );
-};
+}
+
+export default Footer;

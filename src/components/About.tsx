@@ -1,65 +1,116 @@
-import React from 'react';
-import { Award, Users, Clock } from 'lucide-react';
-import Image from 'next/image';
+"use client";
 
-const About: React.FC = () => {
+import Image from "next/image";
+import { motion, useInView } from "framer-motion";
+import * as React from "react";
+import { STATS } from "@/lib/constants";
+
+function AnimatedNumber({ value }: { value: string }) {
+  const ref = React.useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-60px" });
+  const [display, setDisplay] = React.useState<string>(value.startsWith("4.") ? "0.0" : "0");
+
+  React.useEffect(() => {
+    if (!inView) return;
+    const numericMatch = value.match(/[\d.]+/);
+    if (!numericMatch) {
+      setDisplay(value);
+      return;
+    }
+    const target = parseFloat(numericMatch[0]);
+    const suffix = value.slice(numericMatch[0].length);
+    const prefix = value.slice(0, value.indexOf(numericMatch[0]));
+    const duration = 1200;
+    const start = performance.now();
+    const isDecimal = numericMatch[0].includes(".");
+    let raf = 0;
+    const step = (now: number) => {
+      const p = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - p, 3);
+      const v = target * eased;
+      setDisplay(`${prefix}${isDecimal ? v.toFixed(1) : Math.round(v)}${suffix}`);
+      if (p < 1) raf = requestAnimationFrame(step);
+    };
+    raf = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf);
+  }, [inView, value]);
+
+  return <span ref={ref}>{display}</span>;
+}
+
+export function About() {
   return (
-    <section id="about" className="py-20 px-16">
-      <div className="container mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-4xl font-bold text-[#ff2214] mb-6">
-              Your Trusted Auto Service Partner
-            </h2>
-            <p className="text-[#5c6269] text-[16px] mb-8">
-              With years of experience and a commitment to excellence, BG-Automobile has become the
-              leading automotive service provider in Bhuj, Kutch. Our team of certified professionals
-              ensures your vehicle receives the best care possible.
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="flex items-center gap-3">
-                <Award className="w-12 h-12 text-[#ff2214]" />
-                <div>
-                  <h4 className="font-bold text-[#172128]">Certified</h4>
-                  <p className="text-[#5c6269]">Experts</p>
+    <section id="about" className="relative px-6 py-24 md:px-10 md:py-32">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 lg:grid-cols-2">
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7 }}
+        >
+          <span className="text-xs uppercase tracking-[0.3em] text-accent/80">
+            About BG Automobiles
+          </span>
+          <h2 className="mt-4 font-display text-4xl leading-tight tracking-tight md:text-5xl">
+            Four decades of workshop craft, without the dealership mark-up.
+          </h2>
+          <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            We started as a family-run garage in 1984. Today we run a multi-bay
+            studio trusted by drivers of German, British and Japanese marques —
+            still family-run, still obsessive about the details.
+          </p>
+
+          <div className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-4">
+            {STATS.map((stat, i) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-sm"
+              >
+                <div className="font-display text-3xl tracking-tight text-foreground md:text-4xl">
+                  <AnimatedNumber value={stat.value} />
                 </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <Users className="w-12 h-12 text-[#ff2214]" />
-                <div>
-                  <h4 className="font-bold text-[#172128]">1000+</h4>
-                  <p className="text-[#5c6269]">Happy Clients</p>
+                <div className="mt-1 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                  {stat.label}
                 </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <Clock className="w-12 h-12 text-[#ff2214]" />
-                <div>
-                  <h4 className="font-bold text-[#172128]">30+ Years</h4>
-                  <p className="text-[#5c6269]">Experience</p>
-                </div>
-              </div>
-            </div>
+              </motion.div>
+            ))}
           </div>
-          
-          <div className="relative">
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7 }}
+          className="relative"
+        >
+          <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-white/10 shadow-glow">
             <Image
-              src="/servicing.jpg"
-              alt="Auto workshop"
-              className="rounded-lg shadow-xl"
-              width={800}
-              quality={50}
-              height={80}
+              src="/mechanic.png"
+              alt="Technician performing detailed work on a luxury engine"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              quality={85}
+              className="object-cover"
             />
-            <div className="absolute -bottom-10 -right-6 bg-[#ff2214] text-white p-6 rounded-lg">
-              <h3 className="text-2xl font-bold mb-2">Professional Service</h3>
-              <p>Quality work guaranteed</p>
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-bg via-transparent to-transparent" />
+          </div>
+
+          <div className="absolute -bottom-6 left-6 hidden items-center gap-4 rounded-2xl border border-white/10 bg-brand-bg/80 p-5 backdrop-blur-xl shadow-glow md:flex">
+            <div className="h-10 w-10 rounded-full bg-accent-gradient" />
+            <div>
+              <div className="text-sm font-semibold text-foreground">ISO 9001 workshop</div>
+              <div className="text-xs text-muted-foreground">Audited annually</div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
-};
+}
 
 export default About;
