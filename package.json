@@ -16,11 +16,10 @@
     "@vercel/speed-insights": "^1.2.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-      
     "framer-motion": "^12.4.13",
     "lucide-react": "^0.479.0",
     "motion": "^12.4.11",
-    "next": "15.1.7",
+    "next": "15.1.11",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwind-merge": "^3.0.2",
