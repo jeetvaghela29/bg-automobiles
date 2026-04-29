@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Manrope, Playfair_Display } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-// @ts-ignore
+// @ts-expect-error
 import "./globals.css";
 
 const manrope = Manrope({
