@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Manrope, Playfair_Display } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+// @ts-ignore
 import "./globals.css";
 
 const manrope = Manrope({
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
   title:
     "BG Automobiles | Precision Engineering. Unmatched Care. — Bhuj, Kutch",
   description:
-    "A multi-brand automotive service studio in Bhuj, Kutch. Factory-trained technicians, OEM-grade diagnostics, detailing and performance tuning — since 1984.",
+    "A multi-brand automotive service studio in Bhuj, Kutch. Factory-trained technicians, OEM-grade diagnostics, detailing and performance tuning — since 1963.",
 };
 
 export default function RootLayout({

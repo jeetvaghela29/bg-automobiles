@@ -16,7 +16,7 @@ export function Footer() {
             </span>
           </Link>
           <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
-            Precision engineering and unmatched care since 1984. A multi-brand
+            Precision engineering and unmatched care since 1963. A multi-brand
             service studio built on craftsmanship.
           </p>
           <div className="flex items-center gap-3">

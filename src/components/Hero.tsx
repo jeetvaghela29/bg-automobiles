@@ -66,7 +66,7 @@ export function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
             </span>
-            Open now · Est. 1984 · Bhuj
+            Open now · Est. 1963 · Bhuj
           </motion.div>
 
           <motion.h1
@@ -102,8 +102,8 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
             className="mt-6 max-w-lg text-base leading-relaxed text-foreground/75 md:text-lg"
           >
-            Factory-trained technicians. OEM-grade diagnostics. Four decades of
-            workshop craft — delivered on the marques you actually drive.
+            Over 60 years of workshop excellence.
+Expert technicians and precision diagnostics—delivered on the marques you love to drive.
           </motion.p>
 
           <motion.div

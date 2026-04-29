@@ -52,10 +52,10 @@ export function About() {
             About BG Automobiles
           </span>
           <h2 className="mt-4 font-display text-4xl leading-tight tracking-tight md:text-5xl">
-            Four decades of workshop craft, without the dealership mark-up.
+            Six decades of workshop craft, without the dealership mark-up.
           </h2>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            We started as a family-run garage in 1984. Today we run a multi-bay
+            We started as a family-run garage in 1963. Today we run a multi-bay
             studio trusted by drivers of German, British and Japanese marques —
             still family-run, still obsessive about the details.
           </p>
@@ -100,13 +100,13 @@ export function About() {
             <div className="absolute inset-0 bg-gradient-to-t from-brand-bg via-transparent to-transparent" />
           </div>
 
-          <div className="absolute -bottom-6 left-6 hidden items-center gap-4 rounded-2xl border border-white/10 bg-brand-bg/80 p-5 backdrop-blur-xl shadow-glow md:flex">
+          {/* <div className="absolute -bottom-6 left-6 hidden items-center gap-4 rounded-2xl border border-white/10 bg-brand-bg/80 p-5 backdrop-blur-xl shadow-glow md:flex">
             <div className="h-10 w-10 rounded-full bg-accent-gradient" />
             <div>
               <div className="text-sm font-semibold text-foreground">ISO 9001 workshop</div>
               <div className="text-xs text-muted-foreground">Audited annually</div>
             </div>
-          </div>
+          </div> */}
         </motion.div>
       </div>
     </section>

@@ -22,8 +22,7 @@ export function Services() {
             Every service, engineered with intent.
           </h2>
           <p className="mt-5 text-balance text-base text-muted-foreground md:text-lg">
-            From scheduled maintenance to performance builds, every programme is
-            delivered by factory-trained specialists on calibrated equipment.
+            From routine maintenance to complex mechanical repairs, every service is handled by expert technicians using advanced equipment and over 60 years of workshop experience.
           </p>
         </motion.div>
 

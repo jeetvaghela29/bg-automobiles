@@ -1,4 +1,4 @@
-import { Wrench, Car, Gauge, SprayCan, ShieldCheck, Sparkles } from "lucide-react";
+import { Wrench, ScanLine, SprayCan, Snowflake, Disc, Droplets } from "lucide-react";
 
 export const NAV_LINKS = [
   { label: "Services", href: "#services" },
@@ -10,40 +10,40 @@ export const NAV_LINKS = [
 
 export const SERVICES = [
   {
-    icon: Wrench,
-    title: "Mechanical Repairs",
+    icon: ScanLine,
+    title: "Advanced Diagnostics",
     description:
-      "Factory-grade diagnostics and repairs backed by OEM tooling and certified technicians.",
+      "Using OE-level scanning tools to find and fix complex electrical faults and sensor issues quickly and accurately.",
+  },
+  {
+    icon: Wrench,
+    title: "Mechanical Overhauls",
+    description:
+      "Expert drivetrain overhauls, including engine, clutch, and gearbox repairs, along with complete suspension work for a better drive.",
   },
   {
     icon: SprayCan,
-    title: "Denting & Painting",
+    title: "Body Restoration",
     description:
-      "Seamless panel restoration, precision colour matching and high-gloss finishing booths.",
+      "Professional denting and painting services with precision color matching to restore your car’s body to showroom condition.",
   },
   {
-    icon: Gauge,
-    title: "Performance Tuning",
+    icon: Snowflake,
+    title: "Full Service & AC",
     description:
-      "Dyno-tested ECU calibration, suspension setup and brake upgrades for daily and track use.",
+      "Complete manufacturer-spec maintenance and expert AC repairs, including gas filling, to keep your car running cool and reliably.",
   },
   {
-    icon: Car,
-    title: "Detailing & Wash",
+    icon: Disc,
+    title: "Brakes & Alignment",
     description:
-      "Multi-stage paint correction, ceramic coatings and interior deep-clean programmes.",
+     "Essential safety checks, including brake repairs and precision wheel alignment, to ensure smooth handling and longer tire life.",
   },
   {
-    icon: ShieldCheck,
-    title: "Scheduled Servicing",
+    icon: Droplets,
+    title: "Premium Washing",
     description:
-      "Manufacturer-aligned service plans with transparent reporting and digital maintenance logs.",
-  },
-  {
-    icon: Sparkles,
-    title: "Pre-Owned Inspection",
-    description:
-      "150-point inspections, independent valuation and concierge handovers for buyers.",
+      "High-quality premium washing and interior cleaning services focused on aesthetic preservation and keeping your vehicle looking new.",
   },
 ];
 
@@ -57,6 +57,11 @@ export const STATS = [
 export const BRANDS = [
   "Mercedes-Benz",
   "BMW",
+  "Suzuki",
+  "Ford",
+  "Hyundai",
+  "Kia",
+  "Morris Garage",
   "Audi",
   "Porsche",
   "Volkswagen",
@@ -71,21 +76,21 @@ export const BRANDS = [
 
 export const TESTIMONIALS = [
   {
-    name: "Arjun Patel",
-    role: "BMW M340i owner",
+    name: "Harshad Patel",
+    role: "BMW M340i owner, Bhuj",
     quote:
-      "The attention to detail is remarkable. My car came back feeling better than when it left the showroom — every panel gap aligned, every interior surface pristine.",
+      "Ekdum first-class kaam! My car came back feeling better than when it left the showroom — every panel gap aligned, every interior surface pristine. Best workshop in Gujarat.",
   },
   {
-    name: "Priya Sharma",
-    role: "Mercedes GLE owner",
+    name: "Nirali Shah",
+    role: "Mercedes GLE owner, Bhuj",
     quote:
-      "Transparent pricing, honest diagnostics and a loaner arranged the same day. BG Automobiles is the only workshop I trust with a premium vehicle.",
+      "Transparent pricing, honest diagnostics and a loaner arranged the same day. BG Automobiles is the only workshop I trust with a premium vehicle anywhere in Gujarat.",
   },
   {
-    name: "Rohit Mehta",
-    role: "Audi RS5 owner",
+    name: "Jignesh Desai",
+    role: "Kia Seltos owner, Madhapar",
     quote:
-      "They handled a complex electronic fault three dealerships had given up on. Service-first attitude and genuine technical depth.",
+      "They handled a complex electronic fault three dealerships in Ahmedabad had given up on. Service-first attitude and genuine technical depth — saachi vat!",
   },
 ];
