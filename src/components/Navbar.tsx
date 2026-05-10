@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { Menu } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
@@ -32,9 +33,17 @@ export function Navbar() {
     >
       <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 md:h-24 md:px-12">
         <Link href="#top" className="flex items-center">
-          <span className="font-display text-xl tracking-wide text-foreground md:text-2xl">
+        <Image
+            src="/BG_Automobiles.svg"
+            alt="BG Automobiles"
+            width={180}
+            height={35}
+            priority
+            className="h-8 w-auto md:h-10"
+          />
+          {/* <span className="font-display text-xl tracking-wide text-foreground md:text-2xl">
             BG Automobiles
-          </span>
+          </span> */}
         </Link>
 
         <button

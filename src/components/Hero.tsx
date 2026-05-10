@@ -10,10 +10,10 @@ import { buttonVariants } from "@/components/ui/button";
 const ROTATING_WORDS = ["Engineering.", "Diagnostics.", "Detailing.", "Tuning."];
 
 const TRUST_METRICS = [
-  { value: "40+", label: "Years" },
+  { value: "60+", label: "Years" },
   { value: "12k+", label: "Services" },
   { value: "4.9", label: "★ Rating" },
-  { value: "ISO", label: "9001" },
+  // { value: "ISO", label: "9001" },
 ];
 
 export function Hero() {
